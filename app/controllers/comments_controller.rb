@@ -1,11 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    commet = Comment.new(comment_params)
-
-    if commet.save
-      redirect_to "/products/#{params[:product_id]}"
-    else
-    end
+    @comment = Comment.new(comment_params)
+    @comment.save
   end
 
   def destroy

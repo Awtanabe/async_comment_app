@@ -12,16 +12,18 @@
 
 <p>
   <h3></h3>
-  <%= form_for([@product, Comment.new]) do |form|%>
+  <%= form_with(model: [@product, Comment.new], remote: true) do |form|%>
     <%= form.text_area :body%>
     <%= form.submit%>
   <%end%>
 </p>
 <p>
  <h3>コメント一覧</h3>
- <% @product.comments.each do |comment|%>
-  <%= comment.body%>
-  <br>
+ <p id="comment-field">
+   <% @product.comments.each do |comment|%>
+    <%= comment.body%>
+   <br>
+ </p>
  <%end%>
 </p>
 
